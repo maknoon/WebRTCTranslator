@@ -3,6 +3,22 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 const path = require('path');
+const GoogleAuth = require('google-auth-library');
+
+// https://stackoverflow.com/questions/43405331/
+function authorize() {
+    return new Promise(resolve => {
+        const authFactory = new GoogleAuth();
+        const jwtClient = new authFactory.JWT(
+            process.env.GOOGLE_CLIENT_EMAIL, // defined in Heroku
+            null,
+            process.env.GOOGLE_PRIVATE_KEY, // defined in Heroku
+            ['https://www.googleapis.com/auth/calendar']
+        );
+
+        jwtClient.authorize(() => resolve(jwtClient));
+    });
+}
 
 app.use(express.static(__dirname + '/public'));
 
