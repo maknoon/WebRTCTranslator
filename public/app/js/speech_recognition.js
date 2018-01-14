@@ -6,6 +6,17 @@ socket.on('chat message', function(msg) {
   $('#messages').append($('<li>').text(msg));
 });
 
+// Grab elements, create settings, etc.
+var video = document.getElementById('videoElement');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+}
+
 // If you modify this array, also update default language / dialect below.
 var langs =
 [['Afrikaans','af'],
