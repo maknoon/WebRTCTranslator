@@ -3,22 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 const path = require('path');
-const GoogleAuth = require('google-auth-library');
-
-// https://stackoverflow.com/questions/43405331/
-function authorize() {
-    return new Promise(resolve => {
-        const authFactory = new GoogleAuth();
-        const jwtClient = new authFactory.JWT(
-            process.env.GOOGLE_CLIENT_EMAIL, // defined in Heroku
-            null,
-            process.env.GOOGLE_PRIVATE_KEY, // defined in Heroku
-            ['https://www.googleapis.com/auth/calendar']
-        );
-
-        jwtClient.authorize(() => resolve(jwtClient));
-    });
-}
 
 app.use(express.static(__dirname + '/public'));
 
@@ -28,10 +12,12 @@ app.get('/', function(req, res) {
 
 var translationLanguage = 'fr';
 
-io.on('connection', function(socket) {
+io.on('connection', async (socket) => {
     socket.on('chat message', function(msg) {
         const Translate = require('@google-cloud/translate');
-        const translate = new Translate();
+        const translate = new Translate({
+            key: process.env.API_KEY
+        });
         // var text = 'Hello World';
         var text = msg;
         var target = translationLanguage;
@@ -62,6 +48,6 @@ io.on('connection', function(socket) {
 });
 
 const port = process.env.PORT || 8000;
-http.listen(port, function() {
+http.listen(port, () => {
     console.log('Starting propagander');
 });
