@@ -8,195 +8,180 @@ socket.on('chat message', function(msg) {
 
 // If you modify this array, also update default language / dialect below.
 var langs =
-[['Afrikaans',       ['af-ZA']],
- ['አማርኛ',           ['am-ET']],
- ['Azərbaycanca',    ['az-AZ']],
- ['বাংলা',            ['bn-BD', 'বাংলাদেশ'],
-                     ['bn-IN', 'ভারত']],
- ['Bahasa Indonesia',['id-ID']],
- ['Bahasa Melayu',   ['ms-MY']],
- ['Català',          ['ca-ES']],
- ['Čeština',         ['cs-CZ']],
- ['Dansk',           ['da-DK']],
- ['Deutsch',         ['de-DE']],
- ['English',         ['en-AU', 'Australia'],
-                     ['en-CA', 'Canada'],
-                     ['en-IN', 'India'],
-                     ['en-NZ', 'New Zealand'],
-                     ['en-ZA', 'South Africa'],
-                     ['en-GB', 'United Kingdom'],
-                     ['en-US', 'United States']],
- ['Español',         ['es-AR', 'Argentina'],
-                     ['es-BO', 'Bolivia'],
-                     ['es-CL', 'Chile'],
-                     ['es-CO', 'Colombia'],
-                     ['es-CR', 'Costa Rica'],
-                     ['es-EC', 'Ecuador'],
-                     ['es-SV', 'El Salvador'],
-                     ['es-ES', 'España'],
-                     ['es-US', 'Estados Unidos'],
-                     ['es-GT', 'Guatemala'],
-                     ['es-HN', 'Honduras'],
-                     ['es-MX', 'México'],
-                     ['es-NI', 'Nicaragua'],
-                     ['es-PA', 'Panamá'],
-                     ['es-PY', 'Paraguay'],
-                     ['es-PE', 'Perú'],
-                     ['es-PR', 'Puerto Rico'],
-                     ['es-DO', 'República Dominicana'],
-                     ['es-UY', 'Uruguay'],
-                     ['es-VE', 'Venezuela']],
- ['Euskara',         ['eu-ES']],
- ['Français',        ['fr-FR']],
- ['Galego',          ['gl-ES']],
- ['ગુજરાતી',           ['gu-IN']],
- ['Hrvatski',        ['hr-HR']],
- ['IsiZulu',         ['zu-ZA']],
- ['Íslenska',        ['is-IS']],
- ['Italiano',        ['it-IT', 'Italia'],
-                     ['it-CH', 'Svizzera']],
- ['ಕನ್ನಡ',             ['kn-IN']],
- ['ភាសាខ្មែរ',          ['km-KH']],
- ['Latviešu',        ['lv-LV']],
- ['Lietuvių',        ['lt-LT']],
- ['മലയാളം',          ['ml-IN']],
- ['मराठी',             ['mr-IN']],
- ['Magyar',          ['hu-HU']],
- ['ລາວ',              ['lo-LA']],
- ['Nederlands',      ['nl-NL']],
- ['नेपाली भाषा',        ['ne-NP']],
- ['Norsk bokmål',    ['nb-NO']],
- ['Polski',          ['pl-PL']],
- ['Português',       ['pt-BR', 'Brasil'],
-                     ['pt-PT', 'Portugal']],
- ['Română',          ['ro-RO']],
- ['සිංහල',          ['si-LK']],
- ['Slovenščina',     ['sl-SI']],
- ['Basa Sunda',      ['su-ID']],
- ['Slovenčina',      ['sk-SK']],
- ['Suomi',           ['fi-FI']],
- ['Svenska',         ['sv-SE']],
- ['Kiswahili',       ['sw-TZ', 'Tanzania'],
-                     ['sw-KE', 'Kenya']],
- ['ქართული',       ['ka-GE']],
- ['Հայերեն',          ['hy-AM']],
- ['தமிழ்',            ['ta-IN', 'இந்தியா'],
-                     ['ta-SG', 'சிங்கப்பூர்'],
-                     ['ta-LK', 'இலங்கை'],
-                     ['ta-MY', 'மலேசியா']],
- ['తెలుగు',           ['te-IN']],
- ['Tiếng Việt',      ['vi-VN']],
- ['Türkçe',          ['tr-TR']],
- ['اُردُو',            ['ur-PK', 'پاکستان'],
-                     ['ur-IN', 'بھارت']],
- ['Ελληνικά',         ['el-GR']],
- ['български',         ['bg-BG']],
- ['Pусский',          ['ru-RU']],
- ['Српски',           ['sr-RS']],
- ['Українська',        ['uk-UA']],
- ['Slovenčina',      ['sk-SK']],
- ['Suomi',           ['fi-FI']],
- ['Svenska',         ['sv-SE']],
- ['Türkçe',          ['tr-TR']],
- ['български',       ['bg-BG']],
- ['Pусский',         ['ru-RU']],
- ['Српски',          ['sr-RS']],
- ['한국어',            ['ko-KR']],
- ['中文',             ['cmn-Hans-CN', '普通话 (中国大陆)'],
-                     ['cmn-Hans-HK', '普通话 (香港)'],
-                     ['cmn-Hant-TW', '中文 (台灣)'],
-                     ['yue-Hant-HK', '粵語 (香港)']],
- ['日本語',           ['ja-JP']],
- ['हिन्दी',             ['hi-IN']],
- ['ภาษาไทย',         ['th-TH']]];
+[['Afrikaans','af'],
+['Albanian','sq'],
+['Amharic','am'],
+['Arabic','ar'],
+['Armenian','hy'],
+['Azeerbaijani','az'],
+['Basque','eu'],
+['Belarusian','be'],
+['Bengali','bn'],
+['Bosnian','bs'],
+['Bulgarian','bg'],
+['Catalan','ca'],
+['Cebuano','ceb'],
+['Chinese','zh-CN'],
+['Chinese','zh-TW'],
+['Corsican','co'],
+['Croatian','hr'],
+['Czech','cs'],
+['Danish','da'],
+['Dutch','nl'],
+['English','en'],
+['Esperanto','eo'],
+['Estonian','et'],
+['Finnish','fi'],
+['French','fr'],
+['Frisian','fy'],
+['Galician','gl'],
+['Georgian','ka'],
+['German','de'],
+['Greek','el'],
+['Gujarati','gu'],
+['Haitian','ht'],
+['Hausa','ha'],
+['Hawaiian','haw'],
+['Hebrew','iw'],
+['Hindi','hi'],
+['Hmong','hmn'],
+['Hungarian','hu'],
+['Icelandic','is'],
+['Igbo','ig'],
+['Indonesian','id'],
+['Irish','ga'],
+['Italian','it'],
+['Japanese','ja'],
+['Javanese','jw'],
+['Kannada','kn'],
+['Kazakh','kk'],
+['Khmer','km'],
+['Korean','ko'],
+['Kurdish','ku'],
+['Kyrgyz','ky'],
+['Lao','lo'],
+['Latin','la'],
+['Latvian','lv'],
+['Lithuanian','lt'],
+['Luxembourgish','lb'],
+['Macedonian','mk'],
+['Malagasy','mg'],
+['Malay','ms'],
+['Malayalam','ml'],
+['Maltese','mt'],
+['Maori','mi'],
+['Marathi','mr'],
+['Mongolian','mn'],
+['Myanmar','my'],
+['Nepali','ne'],
+['Norwegian','no'],
+['Nyanja','ny'],
+['Pashto','ps'],
+['Persian','fa'],
+['Polish','pl'],
+['Portuguese','pt'],
+['Punjabi','pa'],
+['Romanian','ro'],
+['Russian','ru'],
+['Samoan','sm'],
+['Scots','gd'],
+['Serbian','sr'],
+['Sesotho','st'],
+['Shona','sn'],
+['Sindhi','sd'],
+['Sinhala','si'],
+['Slovak','sk'],
+['Slovenian','sl'],
+['Somali','so'],
+['Spanish','es'],
+['Sundanese','su'],
+['Swahili','sw'],
+['Swedish','sv'],
+['Tagalog','tl'],
+['Tajik','tg'],
+['Tamil','ta'],
+['Telugu','te'],
+['Thai','th'],
+['Turkish','tr'],
+['Ukrainian','uk'],
+['Urdu','ur'],
+['Uzbek','uz'],
+['Vietnamese','vi'],
+['Welsh','cy'],
+['Xhosa','xh'],
+['Yiddish','yi'],
+['Yoruba','yo'],
+['Zulu','zu']]
 
 for (var i = 0; i < langs.length; i++) {
   select_language.options[i] = new Option(langs[i][0], i);
 }
 // Set default language / dialect.
-select_language.selectedIndex = 10;
+select_language.selectedIndex = 24;
 updateCountry();
-select_dialect.selectedIndex = 11;
 
 function updateCountry() {
-  for (var i = select_dialect.options.length - 1; i >= 0; i--) {
-    select_dialect.remove(i);
-  }
-  var list = langs[select_language.selectedIndex];
-  for (var i = 1; i < list.length; i++) {
-    select_dialect.options.add(new Option(list[i][1], list[i][0]));
-  }
-  select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
+  var countrySelection = document.getElementById("select_language");
+  console.log("Mike test " + countrySelection.options[countrySelection.selectedIndex].value);
+  //console.log("Mike test " + ((langs[select_language.selectedIndex][1]))[select_dialect.selectedIndex]);
+  //socket.emit('change language', ((langs[select_language.selectedIndex][1]))[select_dialect.selectedIndex]);
+  //console.log("Mike test " + ((langs[select_language.selectedIndex][1]))[select_dialect.selectedIndex]);
+  socket.emit('change language', (langs[countrySelection.options[countrySelection.selectedIndex].value])[1]);
 }
 
-var create_email = false;
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 var recognition = new webkitSpeechRecognition();
-if (!('webkitSpeechRecognition' in window)) {
+
+recognition.continuous = true;
+recognition.interimResults = true;
+recognition.start();
+
+recognition.onstart = function() {
   recognizing = true;
-} else {
-  recognition.continuous = true;
-  recognition.interimResults = true;
-  recognition.start();
+};
 
-  recognition.onstart = function() {
-    recognizing = true;
-  };
+recognition.onerror = function(event) {
+};
 
-  recognition.onerror = function(event) {
-    if (event.error == 'no-speech') {
-      ignore_onend = true;
-    }
-    if (event.error == 'audio-capture') {
-      ignore_onend = true;
-    }
-    if (event.error == 'not-allowed') {
-      ignore_onend = true;
-    }
-  };
+recognition.onend = function() {
+  recognizing = false;
 
-  recognition.onend = function() {
-    recognizing = false;
-    if (ignore_onend) {
-      return;
+  if (!final_transcript) {
+    return;
+  }
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges();
+    var range = document.createRange();
+    range.selectNode(document.getElementById('final_span'));
+    window.getSelection().addRange(range);
+  }
+};
+
+recognition.onresult = function(event) {
+  var interim_transcript = '';
+  if (typeof(event.results) == 'undefined') {
+    recognition.onend = null;
+    recognition.stop();
+    return;
+  }
+  for (var i = event.resultIndex; i < event.results.length; ++i) {
+    if (event.results[i].isFinal) {
+      final_transcript += event.results[i][0].transcript;
+      
+      /* Translation APIs */
+      socket.emit('chat message', final_transcript);
+      final_transcript = '';
+    } else {
+      interim_transcript += event.results[i][0].transcript;
     }
-    if (!final_transcript) {
-      return;
-    }
-    if (window.getSelection) {
-      window.getSelection().removeAllRanges();
-      var range = document.createRange();
-      range.selectNode(document.getElementById('final_span'));
-      window.getSelection().addRange(range);
-    }
-  };
-  
-  recognition.onresult = function(event) {
-    var interim_transcript = '';
-    if (typeof(event.results) == 'undefined') {
-      recognition.onend = null;
-      recognition.stop();
-      return;
-    }
-    for (var i = event.resultIndex; i < event.results.length; ++i) {
-      if (event.results[i].isFinal) {
-        final_transcript += event.results[i][0].transcript;
-        
-        /* Translation APIs */
-        socket.emit('chat message', final_transcript);
-        final_transcript = '';
-      } else {
-        interim_transcript += event.results[i][0].transcript;
-      }
-    }
-    final_transcript = capitalize(final_transcript);
-    final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
-  };
-}
+  }
+  final_transcript = capitalize(final_transcript);
+  final_span.innerHTML = linebreak(final_transcript);
+  interim_span.innerHTML = linebreak(interim_transcript);
+};
 
 var two_line = /\n\n/g;
 var one_line = /\n/g;
