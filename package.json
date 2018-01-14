@@ -1,0 +1,10 @@
+{
+    "name": "nwhacks2018",
+    "version": "0.0.1",
+    "description": "my first socket.io app",
+    "dependencies": {
+        "@google-cloud/translate": "^1.1.0",
+        "express": "^4.16.2",
+        "socket.io": "^2.0.4"
+    }
+}
