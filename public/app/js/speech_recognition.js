@@ -2,6 +2,10 @@ window.___gcfg = { lang: 'en' };
 
 var socket = io();
 
+socket.on('chat message', function(msg) {
+  $('#messages').append($('<li>').text(msg));
+});
+
 // If you modify this array, also update default language / dialect below.
 var langs =
 [['Afrikaans',       ['af-ZA']],
@@ -18,13 +22,8 @@ var langs =
  ['English',         ['en-AU', 'Australia'],
                      ['en-CA', 'Canada'],
                      ['en-IN', 'India'],
-                     ['en-KE', 'Kenya'],
-                     ['en-TZ', 'Tanzania'],
-                     ['en-GH', 'Ghana'],
                      ['en-NZ', 'New Zealand'],
-                     ['en-NG', 'Nigeria'],
                      ['en-ZA', 'South Africa'],
-                     ['en-PH', 'Philippines'],
                      ['en-GB', 'United Kingdom'],
                      ['en-US', 'United States']],
  ['Español',         ['es-AR', 'Argentina'],
@@ -48,9 +47,7 @@ var langs =
                      ['es-UY', 'Uruguay'],
                      ['es-VE', 'Venezuela']],
  ['Euskara',         ['eu-ES']],
- ['Filipino',        ['fil-PH']],
  ['Français',        ['fr-FR']],
- ['Basa Jawa',       ['jv-ID']],
  ['Galego',          ['gl-ES']],
  ['ગુજરાતી',           ['gu-IN']],
  ['Hrvatski',        ['hr-HR']],
@@ -97,6 +94,13 @@ var langs =
  ['Pусский',          ['ru-RU']],
  ['Српски',           ['sr-RS']],
  ['Українська',        ['uk-UA']],
+ ['Slovenčina',      ['sk-SK']],
+ ['Suomi',           ['fi-FI']],
+ ['Svenska',         ['sv-SE']],
+ ['Türkçe',          ['tr-TR']],
+ ['български',       ['bg-BG']],
+ ['Pусский',         ['ru-RU']],
+ ['Српски',          ['sr-RS']],
  ['한국어',            ['ko-KR']],
  ['中文',             ['cmn-Hans-CN', '普通话 (中国大陆)'],
                      ['cmn-Hans-HK', '普通话 (香港)'],
@@ -169,7 +173,7 @@ if (!('webkitSpeechRecognition' in window)) {
       window.getSelection().addRange(range);
     }
   };
-
+  
   recognition.onresult = function(event) {
     var interim_transcript = '';
     if (typeof(event.results) == 'undefined') {
@@ -183,13 +187,7 @@ if (!('webkitSpeechRecognition' in window)) {
         
         /* Translation APIs */
         socket.emit('chat message', final_transcript);
-        socket.on('chat message', function(msg) {
-          $('#messages').append($('<li>').text(msg));
-        });
-
-        // Clear after the message is final
-        final_transcript = "";
-
+        final_transcript = '';
       } else {
         interim_transcript += event.results[i][0].transcript;
       }

@@ -15,7 +15,6 @@ io.on('connection', function(socket) {
     socket.on('chat message', function(msg) {
         const Translate = require('@google-cloud/translate');
         const translate = new Translate();
-        // var text = 'Hello World';
         var text = msg;
         var target = 'zh-TW';
         translate
@@ -25,17 +24,15 @@ io.on('connection', function(socket) {
                 translations = Array.isArray(translations)
                   ? translations
                   : [translations];
-                io.emit('chat message', 'Translations: ');
-                // console.log('Translations:');
+
                 translations.forEach((translation, i) => {
-                    io.emit('chat message', `${text[i]} => (${target}) ${translation}`);
-                    // console.log(`${text[i]} => (${target}) ${translation}`);
+                    io.emit('chat message', `${translation}`);
                 });
             })
             .catch(err => {
                 console.error('ERROR:', err);
             });
-        // console.log('message: ' + msg);
+        // io.emit('chat message', 'Hello World');
     });
 
     socket.on('disconnect', function(){
