@@ -208,19 +208,3 @@ var first_char = /\S/;
 function capitalize(s) {
   return s.replace(first_char, function(m) { return m.toUpperCase(); });
 }
-
-function startButton(event) {
-  if (recognizing) {
-    recognition.stop();
-    return;
-  }
-  final_transcript = '';
-  recognition.lang = select_dialect.value;
-  recognition.start();
-  ignore_onend = false;
-  final_span.innerHTML = '';
-  interim_span.innerHTML = '';
-  start_timestamp = event.timeStamp;
-}
-
-var current_style;
