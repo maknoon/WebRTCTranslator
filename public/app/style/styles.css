@@ -1,0 +1,59 @@
+:root {
+    --bg-color: #d6eaf8;
+    --accent-color: #2874a6;
+    --body-text: #46494f;
+}
+
+body {
+    padding: 2%;
+    margin: 2%;
+    font-size: 12px;
+    font-family: "Helvetica", sans-serif;
+    color: var(--body-text);
+    background-color: var(--bg-color);
+}
+
+img {
+    margin: 2em;
+}
+
+h3 {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+canvas {
+    height: 50%;
+    width: 50%;
+    padding: 0;
+}
+
+p {
+    font-size: 8pt;
+    font-family: serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    color: var(--accent-color);
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    align-items: center;
+}
+
+.video,.transtitle {
+    border-radius: 4px dashed var(--accent-color);
+}
+
+#results, #messages {
+    font-size: 16pt;
+    font-weight: bolder;
+    font-family: Arial, sans-serif;
+}
+

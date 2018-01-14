@@ -29,7 +29,7 @@ io.on('connection', async (socket) => {
                   ? translations
                   : [translations];
                 translations.forEach((translation, i) => {
-                    io.emit('chat message', `${text[i]} => (${target}) ${translation}`);
+                    io.emit('chat message', `=> (${target}) ${translation}`);
                 });
             })
             .catch(err => {
